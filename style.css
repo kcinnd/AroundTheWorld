@@ -149,7 +149,7 @@ body {
   cursor: pointer;
   margin: 50px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 22px;
   animation: pulse 2s infinite;
   text-shadow: 0 0 5px #0ff; /* Cyan text glow */
   box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c; /* Outer and inner glows */
