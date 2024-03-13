@@ -87,6 +87,8 @@ function openModal(image) {
   };
 }; // This closing brace ends the openModal function
 
+// Your existing script...
+
 displayImages();
 
 // Event listener for the Instructions button
@@ -102,4 +104,19 @@ document.addEventListener('click', function(event) {
       modal.style.display = 'none';
     }
   }
+});
+
+// New functionality for the final input and submit button
+const finalInput = document.getElementById('final-input');
+const submitFinalBtn = document.getElementById('submit-final');
+
+submitFinalBtn.addEventListener('click', function() {
+    const isCorrect = finalInput.value.trim().toLowerCase() === "explore the world";
+    if (isCorrect) {
+        // Redirect to the "exploretheworld.html" page upon correct input
+        window.location.href = 'exploretheworld.html';
+    } else {
+        finalInput.className = 'final-input-wrong'; // Apply red glow for incorrect answers
+        // Optionally clear the input field or display feedback within the modal
+    }
 });
