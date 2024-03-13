@@ -51,8 +51,13 @@ function openModal(image) {
   feedback.style.opacity = 0; // Hide feedback
 
   imageInput.className = ''; // Reset class
-  imageInput.oninput = () => feedback.style.opacity = 0; // Hide feedback when user starts typing again
+  imageInput.oninput = () => feedback.style.opacity = 0; 
 
+  const closeButton = document.querySelector('.close');
+  closeButton.onclick = function() {
+    modal.style.display = "none";
+  };
+  
   imageInput.onkeypress = function(event) {
     if (event.key === "Enter") {
       if (this.value.toLowerCase() === image.name.toLowerCase()) {
