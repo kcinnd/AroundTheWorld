@@ -202,3 +202,50 @@ body {
     box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c;
   }
 }
+
+.final-input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#final-input {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 10px #0ff; /* Initial glow */
+}
+
+#submit-final {
+  padding: 10 20px;
+  font-family: 'Audiowide', sans-serif;
+  border: 2px solid #0ff; /* Bright cyan border */
+  background-color: rgb(0,0,0,0.9);
+  color: #0ff; /* Cyan text */
+  cursor: pointer;
+  margin: 50px;
+  border-radius: 5px;
+  font-size: 22px;
+  animation: pulse 2s infinite;
+  text-shadow: 0 0 5px #0ff; /* Cyan text glow */
+  box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c; /* Outer and inner glows */
+  transition: all 0.3s ease;
+}
+
+#submit-final:hover {
+  box-shadow: 0 0 50px #0ff, inset 0 0 30px #00c; /* Enhanced glow on hover */
+  background-color: #0ff;
+  color: #000000;
+  transform: scale(1.2);
+}
+
+/* Glow effects */
+.final-input-correct {
+    box-shadow: 0 0 15px #0f0; /* Green glow */
+}
+
+.final-input-wrong {
+    box-shadow: 0 0 15px #f00; /* Red glow */
+}
