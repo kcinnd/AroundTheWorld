@@ -117,19 +117,48 @@ body {
   margin: 0 auto; /* Center the image */
 }
 
+/* Styling for the Instructions Button */
 .glow-button {
   padding: 10px 20px;
-  border: none;
-  color: #fff;
-  background-color: #007bff;
+  border: 2px solid #0ff; /* Bright cyan border */
+  background: linear-gradient(to right, #006, #00c); /* Subtle gradient from dark blue to lighter blue */
+  color: #0ff; /* Cyan text */
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
   font-size: 16px;
+  text-shadow: 0 0 5px #0ff; /* Cyan text glow */
+  box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c; /* Outer and inner glows */
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px #0ff;
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 20px #0ff;
+  box-shadow: 0 0 20px #0ff, inset 0 0 15px #00c; /* Enhanced glow on hover */
+}
+
+/* Styling for the Instructions Modal */
+#instructions-modal .modal-content {
+  background: #111; /* Dark background */
+  color: #0ff; /* Cyan text */
+  border: 1px solid #0ff; /* Cyan border */
+  box-shadow: 0 0 15px #0ff, inset 0 0 10px #00c; /* Outer and inner glows */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center; /* Center the text inside the modal */
+  font-size: 16px;
+  position: relative; /* For positioning the close button */
+}
+
+/* Styling for the Close Button within Modals */
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #0ff; /* Cyan text */
+  text-shadow: 0 0 5px #0ff; /* Cyan glow */
+  cursor: pointer;
+}
+
+.modal-content .close:hover {
+  color: #fff; /* Change color on hover for a visual feedback */
 }
