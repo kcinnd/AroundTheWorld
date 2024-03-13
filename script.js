@@ -62,8 +62,11 @@ function openModal(image) {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevent form submission
   
+      // Remove any existing 'input-correct' or 'input-wrong' classes
+      this.classList.remove('input-correct', 'input-wrong');
+  
       const isCorrect = this.value.trim().toLowerCase() === image.name.toLowerCase();
-      this.className = ''; // Clear existing classes
+      // Add the appropriate class based on whether the answer is correct
       this.classList.add(isCorrect ? 'input-correct' : 'input-wrong');
   
       feedback.textContent = isCorrect ? "Nice job!" : "Try again!";
