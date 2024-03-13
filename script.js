@@ -60,18 +60,14 @@ function openModal(image) {
   
   imageInput.onkeypress = function(event) {
     if (event.key === "Enter") {
-      if (this.value.toLowerCase() === image.name.toLowerCase()) {
-        this.className = 'input-correct';
-        feedback.textContent = "Nice job!";
-        feedback.style.opacity = 1;
-      } else {
-        this.className = 'input-wrong';
-        feedback.textContent = "Try again!";
-        feedback.style.opacity = 1;
-      }
+      event.preventDefault(); // Prevent the form from being submitted
+  
+      const isCorrect = this.value.trim().toLowerCase() === image.name.toLowerCase();
+      this.className = isCorrect ? 'input-correct' : 'input-wrong'; // Apply the correct class based on the comparison
+      feedback.textContent = isCorrect ? "Nice job!" : "Try again!"; // Set the appropriate feedback message
+      feedback.style.opacity = 1; // Make the feedback message visible
     }
   };
-}
-
+  
 // Initialize the gallery display
 displayImages();
