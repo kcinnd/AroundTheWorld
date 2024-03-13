@@ -12,6 +12,7 @@ body {
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 200px);
+  grid-auto-rows: auto;
   grid-gap: 20px;
   justify-content: center;
 }
@@ -106,4 +107,11 @@ body {
 
 .input-wrong {
   box-shadow: 0 0 15px #f00;
+}
+
+#modal-img {
+  max-width: 90%; /* Adjust the max width as per your design */
+  max-height: 80vh; /* Adjust the max height to be within the viewport */
+  display: block; /* To center the image in the modal */
+  margin: 0 auto; /* Center the image */
 }
