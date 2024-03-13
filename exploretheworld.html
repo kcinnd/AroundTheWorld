@@ -10,86 +10,38 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
-  font-size: 36px;
   align-items: center;
   justify-content: center;
   margin: 0;
   background: #131313;
   color: #fff;
-  font-size: 96px;
   font-family: 'Fira Mono', monospace;
-  letter-spacing: -7px;
 }
 
-div {
+.glitch-text {
+  font-size: 96px; 
   position: relative;
   animation: glitch 1s linear infinite;
 }
 
-@keyframes glitch {
-  2%, 64% {
-    transform: translate(2px, 0) skew(0deg);
-  }
-  4%, 60% {
-    transform: translate(-2px, 0) skew(0deg);
-  }
-  62% {
-    transform: translate(0, 0) skew(5deg); 
-  }
+.error-message {
+  font-size: 24px; 
+  text-align: center;
+  max-width: 80%; 
+  margin-top: 40px; 
 }
 
-div:before, div:after {
-  content: attr(title);
-  position: absolute;
-  left: 0;
-}
-
-div:before {
-  animation: glitchTop 1s linear infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-}
-
-@keyframes glitchTop {
-  2%, 64% {
-    transform: translate(2px, -2px);
-  }
-  4%, 60% {
-    transform: translate(-2px, 2px);
-  }
-  62% {
-    transform: translate(13px, -1px) skew(-13deg); 
-  }
-}
-
-div:after {
-  animation: glitchBotom 1.5s linear infinite;
-  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-}
-
-@keyframes glitchBotom {
-  2%, 64% {
-    transform: translate(-2px, 0);
-  }
-  4%, 60% {
-    transform: translate(-2px, 0);
-  }
-  62% {
-    transform: translate(-22px, 5px) skew(21deg); 
-  }
-}
 </style>
 </head>
 <body>
-<div title="404">404</div>
+<div class="glitch-text" title="404">404</div> 
 <div class="content-container">
-
-    <div class="error-message">
+    <div class="error-message"> 
         <p>Access denied. Unfortunately, our systems indicate you’ve ventured into an unauthorized zone. To proceed, seek other access.</p>
         <p>Hints to might be hidden in plain sight. Every explorer faces challenges; consider this one of them. Not all who wander are lost, but some paths are less traveled for a reason.</p>
         <p>To find what you seek, understanding the pattern is key. Insight into the code can unlock doors thought to be closed. Consider each step carefully; the solution is woven into the journey.</p>
         <p>Alternate routes might offer unexpected insights. The answer often lies where least expected. Ensure the forward movement of the page by using what you find.</p>
     </div>
-
 </div>
 </body>
 </html>
