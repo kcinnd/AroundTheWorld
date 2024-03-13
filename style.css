@@ -78,8 +78,10 @@ body {
 }
 
 .input-container {
-  position: relative;
-  margin-top: 20px;
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Vertically align items in the middle */
+  justify-content: center; /* Horizontally center items, can adjust based on preference */
+  gap: 10px; /* Space between the input field and feedback message */
 }
 
 #image-input {
@@ -93,6 +95,7 @@ body {
   color: #0ff;
   font-size: 16px;
   outline: none;
+  flex-grow: 1;
   box-shadow: 0 0 15px #0ff;
   display: flex; /* Use flexbox for layout */
   justify-content: center;
@@ -113,6 +116,7 @@ body {
   font-size: 14px;
   padding: 10px;
   opacity: 0;
+  white-space: no wrap;
   transition: opacity 0.5s;
 }
 
