@@ -26,7 +26,7 @@ body {
 }
 
 .gallery img {
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 0 15px #0ff;
