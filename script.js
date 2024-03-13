@@ -1,34 +1,3 @@
-// Add to scripts.js
-function openModal(image) {
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const imageInput = document.getElementById('image-input');
-  const feedback = document.getElementById('feedback');
-
-  modal.style.display = "block";
-  modalImg.src = image.src;
-  imageInput.value = ''; // Clear previous input
-  imageInput.placeholder = "Enter the name...";
-  feedback.style.opacity = 0; // Hide feedback
-
-  imageInput.className = ''; // Reset class
-  imageInput.oninput = () => feedback.style.opacity = 0; // Hide feedback when user starts typing again
-
-  imageInput.onkeypress = function(event) {
-    if (event.key === "Enter") {
-      if (this.value.toLowerCase() === image.name.toLowerCase()) {
-        this.className = 'input-correct';
-        feedback.textContent = "Nice job!";
-        feedback.style.opacity = 1;
-      } else {
-        this.className = 'input-wrong';
-        feedback.textContent = "Try again!";
-        feedback.style.opacity = 1;
-      }
-    }
-  };
-}
-
 const images = [
   { src: "https://i.imgur.com/DfUTEVq.png", name: "eiffel tower" },
   { src: "https://i.imgur.com/omPU99l.png", name: "xian terracotta army" },
@@ -73,23 +42,30 @@ function openModal(image) {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
   const imageInput = document.getElementById('image-input');
+  const feedback = document.getElementById('feedback'); // Add this line
 
   modal.style.display = "block";
   modalImg.src = image.src;
+  imageInput.value = ''; // Clear previous input
   imageInput.placeholder = "Enter the name...";
+  feedback.style.opacity = 0; // Hide feedback
 
-  // Close modal on close button click
-  const closeButton = document.querySelector('.close');
-  closeButton.onclick = function() {
-    modal.style.display = "none";
-  }
+  imageInput.className = ''; // Reset class
+  imageInput.oninput = () => feedback.style.opacity = 0; // Hide feedback when user starts typing again
 
-  // Close modal on outside click
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
+  imageInput.onkeypress = function(event) {
+    if (event.key === "Enter") {
+      if (this.value.toLowerCase() === image.name.toLowerCase()) {
+        this.className = 'input-correct';
+        feedback.textContent = "Nice job!";
+        feedback.style.opacity = 1;
+      } else {
+        this.className = 'input-wrong';
+        feedback.textContent = "Try again!";
+        feedback.style.opacity = 1;
+      }
     }
-  }
+  };
 }
 
 // Initialize the gallery display
