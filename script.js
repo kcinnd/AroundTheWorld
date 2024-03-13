@@ -90,18 +90,14 @@ function openModal(image) {
 // Initialize the gallery display
 displayImages();
 
-const instructionsBtn = document.getElementById('instructions-btn');
-const instructionsModal = document.getElementById('instructions-modal');
-
-instructionsBtn.onclick = function() {
-  instructionsModal.style.display = "block";
-};
-
-// Assuming you use the same close class for closing modals
-const closeButtons = document.querySelectorAll('.close');
-
-closeButtons.forEach(button => {
-  button.onclick = function() {
-    this.closest('.modal').style.display = "none";
-  };
+// Event delegation for close buttons
+document.addEventListener('click', function(event) {
+  // Check if the clicked element has the 'close' class
+  if (event.target.classList.contains('close')) {
+    // Find the closest modal parent and hide it
+    var modal = event.target.closest('.modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
 });
