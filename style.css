@@ -19,7 +19,7 @@ body {
 .gallery {
   display: grid;
   grid-template-columns: repeat(7, 1fr); 
-  grid-template-rows: repeat(2, auto); /* 2 rows */
+  grid-template-rows: repeat(2, auto); 
   grid-gap: 20px; /* Space between images */
   justify-content: center;
   align-items: center;
