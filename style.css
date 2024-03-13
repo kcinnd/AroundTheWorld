@@ -267,7 +267,7 @@ body {
     font-size: 16px;
     line-height: 1.5; /* Improved readability */
     text-align: justify; /* Justified text for a neat look */
-    animation: pulse 2s infinite; /* Reuse the pulse animation for a subtle effect */
+    animation: pulse 2s infinite; 
 }
 
 @keyframes pulse {
