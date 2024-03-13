@@ -49,6 +49,9 @@ body {
   border: 1px solid #888;
   width: 50%;
   position: relative;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
 }
 
 .close {
@@ -84,6 +87,8 @@ body {
   font-size: 16px;
   outline: none;
   box-shadow: 0 0 15px #0ff;
+  display: flex; /* Use flexbox for layout */
+  justify-content: center;
 }
 
 #image-input::placeholder {
