@@ -50,6 +50,8 @@ function openModal(image) {
   imageInput.placeholder = "Enter the name...";
   feedback.style.opacity = 0; // Hide feedback
 
+  imageInput.style.boxShadow = '0 0 15px #0ff';
+
   imageInput.className = ''; // Reset class
   imageInput.oninput = () => feedback.style.opacity = 0; 
 
