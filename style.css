@@ -149,7 +149,7 @@ body {
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 20px #0ff, inset 0 0 15px #00c; /* Enhanced glow on hover */
+  box-shadow: 0 0 30px #0ff, inset 0 0 30px #00c; /* Enhanced glow on hover */
 }
 
 /* Styling for the Instructions Modal */
