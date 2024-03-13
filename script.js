@@ -3,7 +3,18 @@
 const images = [
   { src: "https://i.imgur.com/DfUTEVq.png", name: "eiffel tower" },
   { src: "https://i.imgur.com/omPU99l.png", name: "xian terracotta army" },
-  // Add the rest of the images here
+  { src: "https://i.imgur.com/EAs0cOb.png", name: "edinburgh castle" },
+  { src: "https://i.imgur.com/66Hnqi7.png", name: "el castillo" },
+  { src: "https://i.imgur.com/aOuKFNQ.png", name: "hagia sofia" },
+  { src: "https://i.imgur.com/hPBCQwD.png", name: "red square" },
+  { src: "https://i.imgur.com/H477vww.png", name: "petra" },
+  { src: "https://i.imgur.com/0XgL5j1.png", name: "louvre" },
+  { src: "https://i.imgur.com/nMkwNOx.png", name: "easter island" },
+  { src: "https://i.imgur.com/aUwYnRk.png", name: "great wall of china" },
+  { src: "https://i.imgur.com/UnwcAOt.png", name: "leaning tower of pisa" },
+  { src: "https://i.imgur.com/NQku9P9.png", name: "big ben" },
+  { src: "https://i.imgur.com/OwjTJgM.png", name: "old town of dubrovnik" },
+  { src: "https://i.imgur.com/CEsez5P.png", name: "opera house" }
 ];
 
 // Function to shuffle the images array
