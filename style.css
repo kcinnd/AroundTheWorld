@@ -123,7 +123,6 @@ body {
   transition: opacity 0.5s;
 }
 
-/* Glow effects */
 .input-correct {
   box-shadow: 0 0 15px #0f0;
 }
@@ -213,6 +212,7 @@ body {
 #final-input {
   display: block;
   width: 90%;
+  height: 30px;
   padding: 5px 10px;
   border: none;
   margin: 0;
