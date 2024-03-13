@@ -19,10 +19,12 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-auto-rows: minmax(100px, auto);
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-template-rows: repeat(8, auto);
             gap: 20px;
             padding: 20px;
+            justify-content: center; /* Center grid items horizontally */
+            align-items: center;
         }
 
         .grid-item {
@@ -62,146 +64,143 @@
         }
 
         .color-1 {
-            border-color: #ff4b2b;
+            box-shadow: 0 0 10px #FF5733;
         }
         
         .color-1:hover {
-            box-shadow: 0 0 10px #ff4b2b, inset 0 0 10px #ff4b2b;
+            box-shadow: 0 0 20px #FF5733;
         }
         
-        /* Color 2 - Orange */
         .color-2 {
-            border-color: #ff7e29;
+            box-shadow: 0 0 10px #33FF57;
         }
         
         .color-2:hover {
-            box-shadow: 0 0 10px #ff7e29, inset 0 0 10px #ff7e29;
+            box-shadow: 0 0 20px #33FF57;
         }
         
-        /* Color 3 - Yellow */
         .color-3 {
-            border-color: #ffcd00;
+            box-shadow: 0 0 10px #3357FF;
         }
         
         .color-3:hover {
-            box-shadow: 0 0 10px #ffcd00, inset 0 0 10px #ffcd00;
+            box-shadow: 0 0 20px #3357FF;
         }
         
-        /* Color 4 - Lime */
         .color-4 {
-            border-color: #a8e063;
+            box-shadow: 0 0 10px #57FF33;
         }
         
         .color-4:hover {
-            box-shadow: 0 0 10px #a8e063, inset 0 0 10px #a8e063;
+            box-shadow: 0 0 20px #57FF33;
         }
         
-        /* Color 5 - Green */
+        /* Color 5 Glow */
         .color-5 {
-            border-color: #00b300;
+            box-shadow: 0 0 10px #FF33FF;
         }
         
         .color-5:hover {
-            box-shadow: 0 0 10px #00b300, inset 0 0 10px #00b300;
+            box-shadow: 0 0 20px #FF33FF;
         }
         
-        /* Color 6 - Teal */
+        /* Color 6 Glow */
         .color-6 {
-            border-color: #00b3b3;
+            box-shadow: 0 0 10px #33FFFF;
         }
         
         .color-6:hover {
-            box-shadow: 0 0 10px #00b3b3, inset 0 0 10px #00b3b3;
+            box-shadow: 0 0 20px #33FFFF;
         }
         
-        /* Color 7 - Blue */
+        /* Color 7 Glow */
         .color-7 {
-            border-color: #0099ff;
+            box-shadow: 0 0 10px #FFFF33;
         }
         
         .color-7:hover {
-            box-shadow: 0 0 10px #0099ff, inset 0 0 10px #0099ff;
+            box-shadow: 0 0 20px #FFFF33;
         }
         
-        /* Color 8 - Navy */
+        /* Color 8 Glow */
         .color-8 {
-            border-color: #0000ff;
+            box-shadow: 0 0 10px #FF8333;
         }
         
         .color-8:hover {
-            box-shadow: 0 0 10px #0000ff, inset 0 0 10px #0000ff;
+            box-shadow: 0 0 20px #FF8333;
         }
         
-        /* Color 9 - Purple */
+        /* Color 9 Glow */
         .color-9 {
-            border-color: #8000ff;
+            box-shadow: 0 0 10px #33FF83;
         }
         
         .color-9:hover {
-            box-shadow: 0 0 10px #8000ff, inset 0 0 10px #8000ff;
+            box-shadow: 0 0 20px #33FF83;
         }
         
-        /* Color 10 - Pink */
+        /* Color 10 Glow */
         .color-10 {
-            border-color: #ff00ff;
+            box-shadow: 0 0 10px #8333FF;
         }
         
         .color-10:hover {
-            box-shadow: 0 0 10px #ff00ff, inset 0 0 10px #ff00ff;
+            box-shadow: 0 0 20px #8333FF;
         }
         
-        /* Color 11 - Magenta */
+        /* Color 11 Glow */
         .color-11 {
-            border-color: #ff0080;
+            box-shadow: 0 0 10px #3FF57F;
         }
         
         .color-11:hover {
-            box-shadow: 0 0 10px #ff0080, inset 0 0 10px #ff0080;
+            box-shadow: 0 0 20px #3FF57F;
         }
         
-        /* Color 12 - Coral */
+        /* Color 12 Glow */
         .color-12 {
-            border-color: #ff6b6b;
+            box-shadow: 0 0 10px #7F33FF;
         }
         
         .color-12:hover {
-            box-shadow: 0 0 10px #ff6b6b, inset 0 0 10px #ff6b6b;
+            box-shadow: 0 0 20px #7F33FF;
         }
         
-        /* Color 13 - Gold */
+        /* Color 13 Glow */
         .color-13 {
-            border-color: #ffd700;
+            box-shadow: 0 0 10px #FF337F;
         }
         
         .color-13:hover {
-            box-shadow: 0 0 10px #ffd700, inset 0 0 10px #ffd700;
+            box-shadow: 0 0 20px #FF337F;
         }
         
-        /* Color 14 - Mint */
+        /* Color 14 Glow */
         .color-14 {
-            border-color: #3eb489;
+            box-shadow: 0 0 10px #33FF7F;
         }
         
         .color-14:hover {
-            box-shadow: 0 0 10px #3eb489, inset 0 0 10px #3eb489;
+            box-shadow: 0 0 20px #33FF7F;
         }
         
-        /* Color 15 - Sky Blue */
+        /* Color 15 Glow */
         .color-15 {
-            border-color: #87ceeb;
+            box-shadow: 0 0 10px #7FFF33;
         }
         
         .color-15:hover {
-            box-shadow: 0 0 10px #87ceeb, inset 0 0 10px #87ceeb;
+            box-shadow: 0 0 20px #7FFF33;
         }
         
-        /* Color 16 - Lavender */
+        /* Color 16 Glow */
         .color-16 {
-            border-color: #e6e6fa;
+            box-shadow: 0 0 10px #FF7F33;
         }
         
         .color-16:hover {
-            box-shadow: 0 0 10px #e6e6fa, inset 0 0 10px #e6e6fa;
+            box-shadow: 0 0 20px #FF7F33;
         }
 
     </style>
