@@ -62,16 +62,26 @@ function openModal(image) {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevent form submission
   
-      // Remove any existing 'input-correct' or 'input-wrong' classes
-      this.classList.remove('input-correct', 'input-wrong');
-  
       const isCorrect = this.value.trim().toLowerCase() === image.name.toLowerCase();
-      // Add the appropriate class based on whether the answer is correct
-      this.classList.add(isCorrect ? 'input-correct' : 'input-wrong');
   
-      feedback.textContent = isCorrect ? "Nice job!" : "Try again!";
-      feedback.style.opacity = 1;
+      if (isCorrect) {
+        // Apply green glow for correct answers
+        this.style.boxShadow = '0 0 15px #0f0';
+        feedback.textContent = "Nice job!";
+      } else {
+        // Apply red glow for incorrect answers
+        this.style.boxShadow = '0 0 15px #f00';
+        feedback.textContent = "Try again!";
+      }
+  
+      feedback.style.opacity = 1; // Make the feedback message visible
     }
+  };
+  
+  imageInput.oninput = function() {
+    // Reset the glow to the initial blue glow when the user starts typing again
+    this.style.boxShadow = '0 0 15px #0ff';
+    feedback.style.opacity = 0; // Optionally hide the feedback message
   };
 }; // This closing brace ends the openModal function
 
