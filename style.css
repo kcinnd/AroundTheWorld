@@ -1,7 +1,7 @@
 body {
   background-color: #000;
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'Audiowide', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +22,8 @@ body {
   width: 100px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  transform: scale(1.05); /* Slightly scale up image on hover */
+  box-shadow: 0 0 15px #0ff;
 }
 
 .gallery img:hover {
@@ -126,6 +128,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+  animation: pulse 2s infinite;
   text-shadow: 0 0 5px #0ff; /* Cyan text glow */
   box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c; /* Outer and inner glows */
   transition: all 0.3s ease;
@@ -161,4 +164,16 @@ body {
 
 .modal-content .close:hover {
   color: #fff; /* Change color on hover for a visual feedback */
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c;
+  }
+  50% {
+    box-shadow: 0 0 20px #0ff, inset 0 0 15px #00c;
+  }
+  100% {
+    box-shadow: 0 0 10px #0ff, inset 0 0 10px #00c;
+  }
 }
