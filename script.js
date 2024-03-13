@@ -72,3 +72,19 @@ function openModal(image) {
 
 // Initialize the gallery display
 displayImages();
+
+const instructionsBtn = document.getElementById('instructions-btn');
+const instructionsModal = document.getElementById('instructions-modal');
+
+instructionsBtn.onclick = function() {
+  instructionsModal.style.display = "block";
+};
+
+// Assuming you use the same close class for closing modals
+const closeButtons = document.querySelectorAll('.close');
+
+closeButtons.forEach(button => {
+  button.onclick = function() {
+    this.closest('.modal').style.display = "none";
+  };
+});
