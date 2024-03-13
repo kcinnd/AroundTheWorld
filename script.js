@@ -87,14 +87,16 @@ function openModal(image) {
   };
 }; // This closing brace ends the openModal function
 
-// Initialize the gallery display
 displayImages();
+
+// Event listener for the Instructions button
+document.getElementById('instructions-btn').addEventListener('click', function() {
+    document.getElementById('instructions-modal').style.display = "block";
+});
 
 // Event delegation for close buttons
 document.addEventListener('click', function(event) {
-  // Check if the clicked element has the 'close' class
   if (event.target.classList.contains('close')) {
-    // Find the closest modal parent and hide it
     var modal = event.target.closest('.modal');
     if (modal) {
       modal.style.display = 'none';
