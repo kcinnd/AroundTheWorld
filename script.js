@@ -60,12 +60,14 @@ function openModal(image) {
   
   imageInput.onkeypress = function(event) {
     if (event.key === "Enter") {
-      event.preventDefault(); // Prevent the form from being submitted
-
+      event.preventDefault(); // Prevent form submission
+  
       const isCorrect = this.value.trim().toLowerCase() === image.name.toLowerCase();
-      this.className = isCorrect ? 'input-correct' : 'input-wrong'; // Apply the correct class
-      feedback.textContent = isCorrect ? "Nice job!" : "Try again!"; // Set the feedback message
-      feedback.style.opacity = 1; // Make the feedback message visible
+      this.className = ''; // Clear existing classes
+      this.classList.add(isCorrect ? 'input-correct' : 'input-wrong');
+  
+      feedback.textContent = isCorrect ? "Nice job!" : "Try again!";
+      feedback.style.opacity = 1;
     }
   };
 }; // This closing brace ends the openModal function
