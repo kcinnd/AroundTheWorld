@@ -207,6 +207,22 @@
             box-shadow: 0 0 20px #FF10F0;
         }
 
+        .white-glow {
+            box-shadow: 0 0 15px #fff; /* White glow */
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake {
+            animation: shake 0.5s linear;
+        }
+
     </style>
 </head>
 <body>
@@ -309,6 +325,26 @@
       <button class="submit-button color-16">Submit</button>
   </div>
 </div>
+
+<script>
+    // JavaScript for Puzzle 1 interaction
+    document.addEventListener('DOMContentLoaded', function() {
+        const puzzle1Input = document.getElementById('puzzle-1-input');
+        const puzzle1Submit = document.getElementById('puzzle-1-submit');
+
+        puzzle1Submit.addEventListener('click', function() {
+            if (puzzle1Input.value.trim().toLowerCase() === 'translations') {
+                puzzle1Input.classList.remove('shake');
+                puzzle1Input.classList.add('white-glow');
+                // Optionally, redirect or unlock the next puzzle
+            } else {
+                puzzle1Input.classList.remove('white-glow');
+                puzzle1Input.classList.add('shake');
+                setTimeout(() => puzzle1Input.classList.remove('shake'), 500); // Remove shake after animation
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
