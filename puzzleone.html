@@ -120,17 +120,18 @@
         const closeBtn = document.querySelector('.close');
 
         images.forEach(img => {
-        img.addEventListener('click', function() {
-            modal.style.display = 'flex';
-            document.getElementById('overlay').style.display = 'block'; // Show the overlay
-            modalImg.src = this.src;
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                document.getElementById('overlay').style.display = 'block'; 
+                modalImg.src = this.src;
+            });
         });
-    });
-    
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.getElementById('overlay').style.display = 'none'; // Hide the overlay
-    });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.getElementById('overlay').style.display = 'none'; 
+        });
+    }); 
 </script>
 
 </body>
