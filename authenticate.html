@@ -299,6 +299,15 @@
 </head>
 <body>
 
+<button class="instructions-btn">Instructions</button>
+
+<div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p>Type the instructions later.</p>
+    </div>
+</div>
+
 <div class="grid-container">
     
   <div class="grid-item">
@@ -399,7 +408,6 @@
 </div>
 
 <script>
-    // JavaScript for Puzzle 1 interaction
     document.addEventListener('DOMContentLoaded', function() {
         const puzzle1Input = document.getElementById('puzzle-1-input');
         const puzzle1Submit = document.getElementById('puzzle-1-submit');
@@ -408,13 +416,30 @@
             if (puzzle1Input.value.trim().toLowerCase() === 'translations') {
                 puzzle1Input.classList.remove('shake');
                 puzzle1Input.classList.add('white-glow');
-                // Optionally, redirect or unlock the next puzzle
             } else {
                 puzzle1Input.classList.remove('white-glow');
                 puzzle1Input.classList.add('shake');
                 setTimeout(() => puzzle1Input.classList.remove('shake'), 500); // Remove shake after animation
             }
         });
+
+        const instructionsBtn = document.querySelector('.instructions-btn');
+        const instructionsModal = document.getElementById('instructionsModal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        instructionsBtn.onclick = function() {
+            instructionsModal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            instructionsModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == instructionsModal) {
+                instructionsModal.style.display = "none";
+            }
+        }
     });
 </script>
 
