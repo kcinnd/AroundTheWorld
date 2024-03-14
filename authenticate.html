@@ -311,11 +311,23 @@
             cursor: pointer;
         }
 
+        .instructions-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for the height of the button */
+        }
+
     </style>
 </head>
 <body>
 
-<button class="instructions-btn">Instructions</button>
+<div class="instructions-container">
+    <button class="instructions-btn">Instructions</button>
+</div>
 
 <div id="instructionsModal" class="modal">
     <div class="modal-content">
