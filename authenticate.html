@@ -437,8 +437,13 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const puzzle1Button = document.querySelector('.puzzle-button.color-1'); 
         const puzzle1Input = document.getElementById('puzzle-1-input');
         const puzzle1Submit = document.getElementById('puzzle-1-submit');
+
+        puzzle1Button.addEventListener('click', function() {
+            window.location.href = 'puzzleone.html';
+        });
 
         puzzle1Submit.addEventListener('click', function() {
             if (puzzle1Input.value.trim().toLowerCase() === 'translations') {
@@ -447,17 +452,8 @@
             } else {
                 puzzle1Input.classList.remove('white-glow');
                 puzzle1Input.classList.add('shake');
-                setTimeout(() => puzzle1Input.classList.remove('shake'), 500); 
+                setTimeout(() => puzzle1Input.classList.remove('shake'), 500);
             }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-        const puzzle1Button = document.querySelector('.puzzle-button.color-1'); 
-        const puzzle1Input = document.getElementById('puzzle-1-input');
-        const puzzle1Submit = document.getElementById('puzzle-1-submit');
-
-        puzzle1Button.addEventListener('click', function() {
-            window.location.href = 'puzzleone.html'; 
         });
 
         const instructionsBtn = document.querySelector('.instructions-btn');
@@ -466,17 +462,17 @@
 
         instructionsBtn.onclick = function() {
             instructionsModal.style.display = "block";
-        }
+        };
 
         closeBtn.onclick = function() {
             instructionsModal.style.display = "none";
-        }
+        };
 
         window.onclick = function(event) {
             if (event.target == instructionsModal) {
                 instructionsModal.style.display = "none";
             }
-        }
+        };
     });
 </script>
 </body>
