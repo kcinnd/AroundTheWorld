@@ -451,6 +451,16 @@
             }
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+        const puzzle1Button = document.querySelector('.puzzle-button.color-1'); // Select the Puzzle 1 button
+        const puzzle1Input = document.getElementById('puzzle-1-input');
+        const puzzle1Submit = document.getElementById('puzzle-1-submit');
+
+        // Event listener for the Puzzle 1 button
+        puzzle1Button.addEventListener('click', function() {
+            window.location.href = 'puzzleone.html'; // Redirect to puzzleone.html when clicked
+        });
+
         const instructionsBtn = document.querySelector('.instructions-btn');
         const instructionsModal = document.getElementById('instructionsModal');
         const closeBtn = document.querySelector('.close-btn');
