@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Two</title>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Audiowide', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px #FF973A;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px #FF973A;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            box-shadow: 0 0 20px 10px #FF973A;
+            z-index: 100;
+            left: 50%;
+            top: 20px;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-50%);
+        }
+
+        .modal-content {
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #FF973A;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery">
+    <!-- Insert your images here -->
+    <img src="https://i.imgur.com/Z5ThBgF.png" alt="Image 1">
+    <img src="https://i.imgur.com/GT3PmFf.png" alt="Image 2">
+    <img src="https://i.imgur.com/tMonDXP.png" alt="Image 3">
+    <img src="https://i.imgur.com/KVyR7Wz.png" alt="Image 4">
+    <img src="https://i.imgur.com/fVZF9R4.png" alt="Image 5">
+    <img src="https://i.imgur.com/4T6PXTF.png" alt="Image 6">
+    <img src="https://i.imgur.com/JGQUHhR.png" alt="Image 7">
+    <img src="https://i.imgur.com/r6cUgYR.png" alt="Image 8">
+    <img src="https://i.imgur.com/AcPtYWn.png" alt="Image 9">
+    <img src="https://i.imgur.com/ZwDfcm3.png" alt="Image 10">
+</div>
+<div class="overlay" id="overlay"></div> 
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="" alt="Enlarged Image" id="modal-img">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.querySelector('.close');
+
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                overlay.style.display = 'block';
+                modalImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', () => {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    }); 
+</script>
+
+</body>
+</html>
