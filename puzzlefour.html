@@ -106,8 +106,9 @@
 
         images.forEach(img => {
             img.addEventListener('click', function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.src;
+                modal.style.display = 'flex'; // Display the modal
+                modalImg.style.display = 'block'; // Display the enlarged image
+                modalImg.src = this.src; // Set the source for the enlarged image
             });
         });
 
