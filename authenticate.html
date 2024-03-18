@@ -441,6 +441,8 @@
         const puzzle1Input = document.getElementById('puzzle-1-input');
         const puzzle1Submit = document.getElementById('puzzle-1-submit');
 
+        const puzzle3Button = document.querySelector('.puzzle-button.color-3');
+
         const puzzle2Button = document.querySelector('.puzzle-button.color-2'); 
         puzzle2Button.addEventListener('click', function() {
             window.location.href = 'puzzletwo.html'; 
@@ -448,6 +450,10 @@
 
         puzzle1Button.addEventListener('click', function() {
             window.location.href = 'puzzleone.html';
+        });
+
+        puzzle3Button.addEventListener('click', function() {
+            window.location.href = 'https://www.canva.com/design/DAF-j2jiZAQ/2jOTKE-CpbrEeo3eMc4uCg/view?utm_content=DAF-j2jiZAQ&utm_campaign=designshare&utm_medium=link&utm_source=editor'; // Redirect to the provided Canva link when clicked
         });
 
         puzzle1Submit.addEventListener('click', function() {
