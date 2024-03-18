@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Four</title>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Audiowide', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column; /* Stack images vertically */
+        }
+
+        .gallery img {
+            margin-bottom: 10px; /* Spacing between images */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px #FF7417; /* Initial glow effect */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Slight scale up on hover */
+            box-shadow: 0 0 25px #FF7417; /* Intensify glow on hover */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            box-shadow: 0 0 20px 10px #FF7417; /* Modal glow effect */
+            z-index: 100;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #FF7417; /* Close button color */
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+            color: #fff; /* Hover effect for close button */
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery">
+    <img src="https://i.imgur.com/Cxxse3p.png" alt="Image 1">
+    <img src="https://i.imgur.com/4rAXAC0.png" alt="Image 2">
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="" alt="Enlarged Image" id="modal-img">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.querySelector('.close');
+
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }); 
+</script>
+
+</body>
+</html>
