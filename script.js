@@ -94,7 +94,6 @@ document.getElementById('instructions-btn').addEventListener('click', function()
     document.getElementById('instructions-modal').style.display = "block";
 });
 
-// Event delegation for close buttons
 document.addEventListener('click', function(event) {
   if (event.target.classList.contains('close')) {
     var modal = event.target.closest('.modal');
