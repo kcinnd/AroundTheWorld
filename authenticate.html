@@ -441,6 +441,11 @@
         const puzzle1Input = document.getElementById('puzzle-1-input');
         const puzzle1Submit = document.getElementById('puzzle-1-submit');
 
+        const puzzle2Button = document.querySelector('.puzzle-button.color-2'); 
+        puzzle2Button.addEventListener('click', function() {
+            window.location.href = 'puzzletwo.html'; 
+        });
+
         puzzle1Button.addEventListener('click', function() {
             window.location.href = 'puzzleone.html';
         });
