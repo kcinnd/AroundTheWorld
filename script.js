@@ -36,7 +36,6 @@ function displayImages() {
   });
 }
 
-// Function to open modal with selected image
 function openModal(image) {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
