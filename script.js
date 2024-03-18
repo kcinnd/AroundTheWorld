@@ -15,7 +15,6 @@ const images = [
   { src: "https://i.imgur.com/CEsez5P.png", name: "opera house" }
 ];
 
-// Function to shuffle the images array
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -106,7 +105,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// New functionality for the final input and submit button
 const finalInput = document.getElementById('final-input');
 const submitFinalBtn = document.getElementById('submit-final');
 
