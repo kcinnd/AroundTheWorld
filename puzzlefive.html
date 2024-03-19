@@ -79,19 +79,19 @@
 
         .close {
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: -10px; /* Adjusted to ensure visibility */
+            right: -10px; /* Adjusted to ensure visibility */
             font-size: 30px;
             color: #fff; /* Close button initial color */
             cursor: pointer;
             transition: transform 0.2s ease, color 0.2s ease;
             text-shadow: 0 0 10px #FFAE42; /* Glow effect for close button */
-            display: block; /* Ensure the close button is always displayed */
+            z-index: 101; /* Ensure the close button is above other content */
         }
 
         .close:hover {
             transform: scale(1.2);
-            color: #FFAE42; /* Color change on hover */
+            color: #FFAE42; 
         }
     </style>
 </head>
@@ -113,8 +113,8 @@
 </div>
 
 <div class="modal" id="modal">
+    <span class="close">&times;</span> 
     <div class="modal-content">
-        <span class="close">&times;</span>
         <img src="" alt="Enlarged Image" id="modal-img">
     </div>
 </div>
