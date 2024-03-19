@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Six - Part Two</title>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Audiowide', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+      
+        .number-counter {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FFFF33; 
+            text-shadow: 0 0 10px #FFFF33, 0 0 20px #FFFF33; 
+        }
+
+      
+        .conversion-chart-btn {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #000;
+            color: #FFFF33;
+            border: 2px solid #FFFF33;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px #FFFF33;
+        }
+        .conversion-chart-btn:hover {
+            background-color: #333; 
+            box-shadow: 0 0 25px #FFFF33;
+        }
+
+       
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .image-grid img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; 
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+            box-shadow: 0 0 15px #FFFF33;
+        }
+        .image-grid img:hover {
+            box-shadow: 0 0 25px #FFFF33, 0 0 35px #FFFF33;
+        }
+        .image-grid img.selected {
+            box-shadow: 0 0 25px #FFFF33, 0 0 45px #FFFF33, 0 0 60px #FFFF33; 
+        }
+
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9); 
+            box-shadow: 0 0 20px #FFFF33; 
+            border-radius: 10px;
+        }
+        .modal-content img {
+            width: 80vw;
+            max-height: 80vh;
+            border-radius: 10px; 
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #FFFF33;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="number-counter">000.00</div>
+    <button class="conversion-chart-btn">Conversion Chart</button>
+
+    <div class="image-grid">
+        <img src="https://i.imgur.com/9Xr32Sa.png" alt="Image 1">
+        <img src="https://i.imgur.com/l8Ky0Qd.png" alt="Image 2">
+        <img src="https://i.imgur.com/mWF0hCc.png" alt="Image 3">
+        <img src="https://i.imgur.com/Vq4VvY2.png" alt="Image 4">
+        <img src="https://i.imgur.com/tv475co.png" alt="Image 5">
+        <img src="https://i.imgur.com/1uW3n47.png" alt="Image 6">
+        <img src="https://i.imgur.com/T0ttLrf.png" alt="Image 7">
+        <img src="https://i.imgur.com/AniEQ8F.png" alt="Image 8">
+        <img src="https://i.imgur.com/YtwRV9g.png" alt="Image 9">
+        <img src="https://i.imgur.com/cKtUvXX.png" alt="Image 10">
+        <img src="https://i.imgur.com/pRAXNkI.png" alt="Image 11">
+        <img src="https://i.imgur.com/Ct8mx6O.png" alt="Image 12">
+        <img src="https://i.imgur.com/oSjHzOd.png" alt="Image 13">
+        <img src="https://i.imgur.com/i5M4FYy.png" alt="Image 14">
+        <img src="https://i.imgur.com/eMfxTqr.png" alt="Image 15">
+        <img src="https://i.imgur.com/yDb9YeF.png" alt="Image 16">
+    </div>
+
+    <div class="modal" id="conversion-chart-modal">
+        <div class="modal-content">
+            <img src="https://i.imgur.com/XpFSY6J.png" alt="Conversion Chart">
+        </div>
+        <span class="close">&times;</span>
+    </div>
+  
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counterDisplay = document.querySelector('.number-counter'); // Ensure this matches your HTML
+        let counterValue = 0;
+
+        const updateCounter = (value, add) => {
+            counterValue = add ? counterValue + value : counterValue - value;
+            counterDisplay.textContent = counterValue.toFixed(2).padStart(6, '0'); // Updated for counter display format
+        };
+
+        const imageValues = {
+            'img1': 1,
+            'img2': 0.79,
+            'img3': 150.67,
+            'img4': 0.89,
+            'img5': 83.02,
+            'img6': 18.92,
+            'img7': 92.07,
+            'img8': 16.86,
+            'img9': 1.65,
+            'img10': 1.34,
+            'img11': 7.82,
+            'img12': 10.65,
+            'img13': 10.44,
+            'img14': 1.09,
+            'img15': 0.65,
+            'img16': 0.74,
+        };
+
+        document.querySelectorAll('.image-grid img').forEach((img, index) => { // Ensure this matches your HTML
+            img.id = 'img' + (index + 1); // Assign IDs dynamically
+            img.addEventListener('click', function() {
+                const isSelected = img.classList.toggle('selected');
+                updateCounter(imageValues[img.id], isSelected);
+            });
+        });
+
+        const conversionChartBtn = document.getElementById('conversion-chart-btn'); // Ensure this matches your HTML
+        const conversionChartModal = document.getElementById('conversion-chart-modal'); // Ensure this matches your HTML
+        const closeConversionChartBtn = conversionChartModal.querySelector('.close'); // Updated for better targeting
+
+        conversionChartBtn.addEventListener('click', () => {
+            conversionChartModal.style.display = 'flex';
+        });
+
+        closeConversionChartBtn.addEventListener('click', () => {
+            conversionChartModal.style.display = 'none';
+        });
+
+        conversionChartModal.addEventListener('click', (e) => {
+            if (e.target === conversionChartModal) {
+                conversionChartModal.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
