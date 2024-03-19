@@ -38,25 +38,25 @@
         }
 
         .instructions-modal {
-            display: none; /* Hidden by default */
+            display: none; 
             position: fixed;
-            z-index: 101; /* Above everything else */
+            z-index: 101; 
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.8); 
         }
     
         .instructions-content {
-            background-color: #000; /* Black background for the content */
-            margin: 15% auto; /* Margin top and centered horizontally */
+            background-color: #000; 
+            margin: 15% auto; 
             padding: 20px;
-            border: 1px solid #FFFF33; /* Border color adjusted to Puzzle Six theme */
-            width: 80%; /* Responsive width */
-            box-shadow: 0 0 10px #FFFF33, 0 0 20px #FFFF33; /* Glow effect */
-            border-radius: 10px; /* Rounded corners for the modal */
+            border: 1px solid #FFFF33; 
+            width: 80%; 
+            box-shadow: 0 0 10px #FFFF33, 0 0 20px #FFFF33; 
+            border-radius: 10px; 
         }
     
         .instructions-close {
@@ -68,7 +68,7 @@
     
         .instructions-close:hover,
         .instructions-close:focus {
-            color: #FFFF33; /* Color changed to match Puzzle Six theme */
+            color: #FFFF33; 
             text-decoration: none;
             cursor: pointer;
         }
@@ -177,7 +177,6 @@
     </div>
 </div>
 
-<!-- Part Two Content will go here -->
 
 <div class="modal" id="modal">
     <div class="modal-content">
@@ -192,46 +191,34 @@
         const partTwoTab = document.getElementById('part-two-tab');
         const instructionsBtn = document.querySelector('.instructions-btn');
         const partOneContent = document.getElementById('part-one-content');
-        const partTwoContent = document.getElementById('part-two-content'); // Assuming you'll add this
-        const instructionsContent = document.getElementById('instructions-content'); // Assuming you'll add this
+
         const modal = document.getElementById('modal');
         const modalImg = document.getElementById('modal-img');
         const closeBtn = document.querySelector('.close');
 
-        const instructionsBtn = document.querySelector('.instructions-btn');
         const instructionsModal = document.getElementById('instructionsModal');
-        const instructionsClose = document.getElementsByClassName("instructions-close")[0];
-    
+        const instructionsClose = document.querySelector('.instructions-close');
+
         instructionsBtn.onclick = function() {
             instructionsModal.style.display = "block";
-        }
-    
+        };
+
         instructionsClose.onclick = function() {
             instructionsModal.style.display = "none";
-        }
-    
+        };
+
         window.onclick = function(event) {
             if (event.target == instructionsModal) {
                 instructionsModal.style.display = "none";
             }
-        }
+        };
 
         partOneTab.addEventListener('click', () => {
             partOneContent.style.display = 'block';
-            partTwoContent.style.display = 'none'; // Assuming you'll add this
-            instructionsContent.style.display = 'none'; // Assuming you'll add this
         });
 
         partTwoTab.addEventListener('click', () => {
-            partTwoContent.style.display = 'block'; // Assuming you'll add this
-            partOneContent.style.display = 'none';
-            instructionsContent.style.display = 'none'; // Assuming you'll add this
-        });
-
-        instructionsBtn.addEventListener('click', () => {
-            instructionsContent.style.display = 'block'; // Assuming you'll add this
-            partOneContent.style.display = 'none';
-            partTwoContent.style.display = 'none'; // Assuming you'll add this
+            window.location.href = 'puzzlesixparttwo.html'; 
         });
 
         document.querySelectorAll('.time-period-button').forEach(button => {
