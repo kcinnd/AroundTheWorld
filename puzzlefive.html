@@ -38,12 +38,12 @@
         }
 
         .part-one img, .gallery img {
-            width: 25%; /* Adjusted size for Part One image */
+            width: 25%;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 15px #FFAE42;
-            margin: 10px auto; /* Center the image horizontally */
-            display: block; /* Required for margin auto to work */
+            margin: 10px auto;
+            display: block;
         }
 
         .part-one img:hover, .gallery img:hover {
@@ -69,11 +69,12 @@
         }
 
         .modal-content img {
-            max-width: 80vw; /* Adjusted maximum width */
-            max-height: 80vh; /* Adjusted maximum height */
+            max-width: 80vw;
+            max-height: 80vh;
             margin: 0 auto;
-            display: block; /* Required for margin auto to work */
-            transform: scale(1.15); /* Enlarge the image to 115% when clicked */
+            display: block;
+            transform: scale(1.15);
+            box-shadow: 0 0 25px #FFAE42; /* Glow effect for enlarged images */
         }
 
         .close {
@@ -81,17 +82,15 @@
             top: 10px;
             right: 20px;
             font-size: 30px;
-            color: #FFAE42; /* Close button color */
+            color: #fff; /* Close button initial color */
             cursor: pointer;
-            transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
-            text-shadow: 0 0 10px #fff; /* White glow */
-            display: block; /* Ensure it's always visible when the modal is open */
+            transition: transform 0.2s ease, color 0.2s ease;
+            text-shadow: 0 0 10px #FFAE42; /* Glow effect for close button */
         }
 
         .close:hover {
             transform: scale(1.2);
-            color: #fff; /* Change color to white on hover */
-            text-shadow: 0 0 15px #FFAE42; /* Orange glow on hover */
+            color: #FFAE42; /* Color change on hover */
         }
     </style>
 </head>
@@ -144,14 +143,12 @@
         document.querySelectorAll('.part-one img, .gallery img').forEach(img => {
             img.addEventListener('click', function() {
                 modal.style.display = 'flex';
-                modalImg.style.display = 'block';
                 modalImg.src = this.src;
             });
         });
 
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
-            modalImg.style.display = 'none';
         });
     });
 </script>
