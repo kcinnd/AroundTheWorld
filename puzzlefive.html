@@ -37,8 +37,8 @@
             box-shadow: 0 0 25px #FFAE42;
         }
 
-        .part-one img {
-            width: 30%; /* Smaller size before being clicked */
+        .part-one img, .gallery img {
+            width: 30%; /* Initial size before being clicked */
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 15px #FFAE42;
@@ -46,15 +46,7 @@
             display: block; /* Required for margin auto to work */
         }
 
-        .gallery img {
-            width: 30%; /* Smaller size for Part Two images */
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px #FFAE42;
-            margin: 5px;
-        }
-
-        .gallery img:hover, .part-one img:hover {
+        .part-one img:hover, .gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px #FFAE42;
         }
@@ -77,10 +69,11 @@
         }
 
         .modal-content img {
-            width: 125%; /* Larger size when clicked */
-            height: auto;
-            margin: 0 auto; /* Center the image */
+            max-width: 90vw; /* Maximum width to ensure it stays within the viewport */
+            max-height: 80vh; /* Maximum height to ensure it stays within the viewport */
+            margin: 0 auto;
             display: block; /* Required for margin auto to work */
+            transform: scale(1.25); /* Enlarge the image to 125% when clicked */
         }
 
         .close {
