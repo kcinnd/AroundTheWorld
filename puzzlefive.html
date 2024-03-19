@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Five</title>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Audiowide', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column; 
+        }
 
+        .tab-button {
+            background-color: #FFAE42;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            color: #000;
+            font-family: 'Audiowide', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #d98e36;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .gallery img {
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 80%;
+            max-height: 300px;
+            object-fit: contain;
+            box-shadow: 0 0 15px #FFAE42;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #FFAE42;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            box-shadow: 0 0 20px 10px #FFAE42;
+            z-index: 100;
+            left: 50%;
+            top: 50%;
+            width: auto;
+            max-width: 90%;
+            height: auto;
+            max-height: 90%;
+            background-color: rgba(252, 160, 102, 0.9);
+            justify-content: center;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            flex-direction: column;
+        }
+    
+        .modal-content img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            margin: 0 auto;
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #FFAE42;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tabs">
+    <button class="tab-button" onclick="showContent('partOne')">Part One</button>
+    <button class="tab-button" onclick="showContent('partTwo')">Part Two</button>
+</div>
+
+<div id="partOne" class="content">
+    <img src="https://i.imgur.com/8lOmA14.png" alt="Part One Image">
+</div>
+
+<div id="partTwo" class="content">
+    <div class="gallery">
+        <img src="https://i.imgur.com/l4Fqe0i.png" alt="Part Two Image 1">
+        <img src="https://i.imgur.com/yQ5L08D.png" alt="Part Two Image 2">
+        <img src="https://i.imgur.com/7wSPuby.png" alt="Part Two Image 3">
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-img">
+    </div>
+</div>
+
+<script>
+    function showContent(part) {
+        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+        document.getElementById(part).classList.add('active');
+    }
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+        img.addEventListener('click', function() {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = this.src;
+            modal.style.display = 'flex';
+        });
+    });
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
