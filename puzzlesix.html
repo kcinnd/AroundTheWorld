@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Six - Part One</title>
+    <title>Puzzle Six</title>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <style>
         body {
@@ -19,10 +19,33 @@
             flex-direction: column; 
         }
 
+        .tab {
+            padding: 10px 20px;
+            border: none;
+            background: #FFFF33;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px #FFFF33;
+        }
+
+        .tab:hover {
+            background-color: #ffff66;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #FFFF33;
+        }
+
+        .part-content {
+            display: none;
+        }
+
         .main-image-container img {
             width: 500px;
             box-shadow: 0 0 15px #FFFF33;
-            margin-bottom: 20px;
+            margin: 20px auto;
+            display: block;
         }
 
         .time-period-button {
@@ -30,7 +53,7 @@
             margin: 5px 0;
             border: none;
             background: #FFFF33;
-            color: #000; /* Text color */
+            color: #000;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
@@ -52,7 +75,7 @@
             top: 50%;
             width: auto;
             height: auto;
-            background-color: transparent; /* No background */
+            background-color: transparent;
             justify-content: center;
             align-items: center;
             transform: translate(-50%, -50%);
@@ -60,9 +83,9 @@
         }
 
         .modal-content img {
-            width: 80vw;
+            max-width: 80vw;
             max-height: 80vh;
-            box-shadow: 0 0 25px #FFFF33;
+            object-fit: contain; 
         }
 
         .close {
@@ -73,7 +96,6 @@
             color: #FFFF33;
             cursor: pointer;
             transition: transform 0.2s ease, color 0.2s ease;
-            text-shadow: 0 0 10px #FFFF33;
         }
 
         .close:hover {
@@ -84,15 +106,24 @@
 </head>
 <body>
 
-<div class="main-image-container">
-    <img src="https://i.imgur.com/zUHfL8j.png" alt="Main Image">
+<div class="tab-container">
+    <button class="tab instructions-btn">Instructions</button>
+    <button class="tab" id="part-one-tab">Part One</button>
+    <button class="tab" id="part-two-tab">Part Two</button>
 </div>
 
-<div>
-    <button class="time-period-button" data-image="https://i.imgur.com/vs86IoQ.png">1850-1860</button>
-    <button class="time-period-button" data-image="https://i.imgur.com/mlVlBIv.png">1940-1960</button>
-    <button class="time-period-button" data-image="https://i.imgur.com/Gpvrhq1.png">1990-2010</button>
+<div class="part-content" id="part-one-content">
+    <div class="main-image-container">
+        <img src="https://i.imgur.com/zUHfL8j.png" alt="Main Image">
+    </div>
+    <div>
+        <button class="time-period-button" data-image="https://i.imgur.com/vs86IoQ.png">1850-1860</button>
+        <button class="time-period-button" data-image="https://i.imgur.com/mlVlBIv.png">1940-1960</button>
+        <button class="time-period-button" data-image="https://i.imgur.com/Gpvrhq1.png">1990-2010</button>
+    </div>
 </div>
+
+<!-- Part Two Content will go here -->
 
 <div class="modal" id="modal">
     <div class="modal-content">
@@ -103,12 +134,35 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const buttons = document.querySelectorAll('.time-period-button');
+        const partOneTab = document.getElementById('part-one-tab');
+        const partTwoTab = document.getElementById('part-two-tab');
+        const instructionsBtn = document.querySelector('.instructions-btn');
+        const partOneContent = document.getElementById('part-one-content');
+        const partTwoContent = document.getElementById('part-two-content'); // Assuming you'll add this
+        const instructionsContent = document.getElementById('instructions-content'); // Assuming you'll add this
         const modal = document.getElementById('modal');
         const modalImg = document.getElementById('modal-img');
         const closeBtn = document.querySelector('.close');
 
-        buttons.forEach(button => {
+        partOneTab.addEventListener('click', () => {
+            partOneContent.style.display = 'block';
+            partTwoContent.style.display = 'none'; // Assuming you'll add this
+            instructionsContent.style.display = 'none'; // Assuming you'll add this
+        });
+
+        partTwoTab.addEventListener('click', () => {
+            partTwoContent.style.display = 'block'; // Assuming you'll add this
+            partOneContent.style.display = 'none';
+            instructionsContent.style.display = 'none'; // Assuming you'll add this
+        });
+
+        instructionsBtn.addEventListener('click', () => {
+            instructionsContent.style.display = 'block'; // Assuming you'll add this
+            partOneContent.style.display = 'none';
+            partTwoContent.style.display = 'none'; // Assuming you'll add this
+        });
+
+        document.querySelectorAll('.time-period-button').forEach(button => {
             button.addEventListener('click', function() {
                 modal.style.display = 'flex';
                 modalImg.src = this.dataset.image;
