@@ -16,43 +16,40 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
-        .tab-button {
-            background-color: #FFAE42;
-            border: none;
+        .tab {
             padding: 10px 20px;
-            margin-right: 10px;
+            border: none;
+            background: #FFAE42;
+            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
-            color: #000;
-            font-family: 'Audiowide', sans-serif;
-            transition: background-color 0.3s;
-        }
-
-        .tab-button:hover {
-            background-color: #d98e36;
-        }
-
-        .content {
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        .gallery img {
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 80%;
-            max-height: 300px;
-            object-fit: contain;
+            margin: 5px;
+            transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0 0 15px #FFAE42;
         }
 
-        .gallery img:hover {
+        .tab:hover {
+            background-color: #ffbf60;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #FFAE42;
+        }
+
+        .gallery img {
+            width: 30%; /* Smaller size for Part Two images */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px #FFAE42;
+            margin: 5px;
+        }
+
+        .part-one img {
+            width: 50%; /* Smaller size for Part One image */
+        }
+
+        .gallery img:hover, .part-one img:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px #FFAE42;
         }
@@ -60,26 +57,23 @@
         .modal {
             display: none;
             position: fixed;
-            box-shadow: 0 0 20px 10px #FFAE42;
             z-index: 100;
             left: 50%;
             top: 50%;
             width: auto;
-            max-width: 90%;
             height: auto;
-            max-height: 90%;
             background-color: rgba(252, 160, 102, 0.9);
             justify-content: center;
             align-items: center;
             transform: translate(-50%, -50%);
             padding: 20px;
             flex-direction: column;
+            box-shadow: 0 0 20px 10px #FFAE42;
         }
-    
+
         .modal-content img {
-            width: 100%; 
-            max-width: 800px; 
-            height: auto; 
+            width: 80%; /* Larger size when clicked */
+            height: auto;
             margin: 0 auto;
             display: block;
         }
@@ -102,48 +96,61 @@
 </head>
 <body>
 
-<div class="tabs">
-    <button class="tab-button" onclick="showContent('partOne')">Part One</button>
-    <button class="tab-button" onclick="showContent('partTwo')">Part Two</button>
+<div class="tab-container">
+    <button class="tab" id="part-one-tab">Part One</button>
+    <button class="tab" id="part-two-tab">Part Two</button>
 </div>
 
-<div id="partOne" class="content">
+<div class="part-one" style="display: none;">
     <img src="https://i.imgur.com/8lOmA14.png" alt="Part One Image">
 </div>
 
-<div id="partTwo" class="content">
-    <div class="gallery">
-        <img src="https://i.imgur.com/l4Fqe0i.png" alt="Part Two Image 1">
-        <img src="https://i.imgur.com/yQ5L08D.png" alt="Part Two Image 2">
-        <img src="https://i.imgur.com/7wSPuby.png" alt="Part Two Image 3">
-    </div>
+<div class="gallery" style="display: none;">
+    <img src="https://i.imgur.com/l4Fqe0i.png" alt="Part Two Image 1">
+    <img src="https://i.imgur.com/yQ5L08D.png" alt="Part Two Image 2">
+    <img src="https://i.imgur.com/7wSPuby.png" alt="Part Two Image 3">
 </div>
 
 <div class="modal" id="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modal-img">
+        <span class="close">&times;</span>
+        <img src="" alt="Enlarged Image" id="modal-img">
     </div>
 </div>
 
 <script>
-    function showContent(part) {
-        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-        document.getElementById(part).classList.add('active');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const partOneTab = document.getElementById('part-one-tab');
+        const partTwoTab = document.getElementById('part-two-tab');
+        const partOne = document.querySelector('.part-one');
+        const gallery = document.querySelector('.gallery');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.querySelector('.close');
 
-    document.querySelectorAll('.gallery img').forEach(img => {
-        img.addEventListener('click', function() {
-            const modal = document.getElementById('modal');
-            const modalImg = document.getElementById('modal-img');
-            modalImg.src = this.src;
-            modal.style.display = 'flex';
+        partOneTab.addEventListener('click', () => {
+            partOne.style.display = 'block';
+            gallery.style.display = 'none';
+        });
+
+        partTwoTab.addEventListener('click', () => {
+            gallery.style.display = 'flex';
+            gallery.style.flexDirection = 'row';
+            gallery.style.justifyContent = 'center';
+            partOne.style.display = 'none';
+        });
+
+        document.querySelectorAll('.part-one img, .gallery img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
         });
     });
-
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
 </script>
 
 </body>
