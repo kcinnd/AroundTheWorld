@@ -37,6 +37,42 @@
             box-shadow: 0 0 25px #FFFF33;
         }
 
+        .instructions-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 101; /* Above everything else */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        }
+    
+        .instructions-content {
+            background-color: #000; /* Black background for the content */
+            margin: 15% auto; /* Margin top and centered horizontally */
+            padding: 20px;
+            border: 1px solid #FFFF33; /* Border color adjusted to Puzzle Six theme */
+            width: 80%; /* Responsive width */
+            box-shadow: 0 0 10px #FFFF33, 0 0 20px #FFFF33; /* Glow effect */
+            border-radius: 10px; /* Rounded corners for the modal */
+        }
+    
+        .instructions-close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    
+        .instructions-close:hover,
+        .instructions-close:focus {
+            color: #FFFF33; /* Color changed to match Puzzle Six theme */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .part-content {
             display: none;
         }
@@ -122,6 +158,13 @@
     <button class="tab" id="part-two-tab">Part Two</button>
 </div>
 
+<div id="instructionsModal" class="instructions-modal">
+    <div class="instructions-content">
+        <span class="instructions-close">&times;</span>
+        <p>For this puzzle, your job is to find a five-digit number in part one in order to find a correct combination for part two. Part one is self-explanatory: find the total following the page instructions and information given. Let this number found be ABCDE. Next, you will convert this into a decimal number like the following: ABC.DE. Using this number, you will need to find the correct currencies in part two that give you this total exactly by clicking on them to adjust your total. A conversion chart dated for April 2024's current exchange rates is given as a visual aid. Once you reach the correct precise total, your certitude keyword phrase will be given. Good luck, and have fun!</p>
+    </div>
+</div>
+
 <div class="part-content" id="part-one-content">
     <div class="main-image-container">
         <img src="https://i.imgur.com/zUHfL8j.png" alt="Main Image">
@@ -154,6 +197,24 @@
         const modal = document.getElementById('modal');
         const modalImg = document.getElementById('modal-img');
         const closeBtn = document.querySelector('.close');
+
+        const instructionsBtn = document.querySelector('.instructions-btn');
+        const instructionsModal = document.getElementById('instructionsModal');
+        const instructionsClose = document.getElementsByClassName("instructions-close")[0];
+    
+        instructionsBtn.onclick = function() {
+            instructionsModal.style.display = "block";
+        }
+    
+        instructionsClose.onclick = function() {
+            instructionsModal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+            if (event.target == instructionsModal) {
+                instructionsModal.style.display = "none";
+            }
+        }
 
         partOneTab.addEventListener('click', () => {
             partOneContent.style.display = 'block';
