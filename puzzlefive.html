@@ -38,7 +38,7 @@
         }
 
         .part-one img, .gallery img {
-            width: 30%; /* Initial size before being clicked */
+            width: 25%; /* Smaller size for Part One image */
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 15px #FFAE42;
@@ -69,11 +69,11 @@
         }
 
         .modal-content img {
-            max-width: 90vw; /* Maximum width to ensure it stays within the viewport */
-            max-height: 80vh; /* Maximum height to ensure it stays within the viewport */
+            max-width: 80vw; /* Adjusted maximum width */
+            max-height: 80vh; /* Adjusted maximum height */
             margin: 0 auto;
             display: block; /* Required for margin auto to work */
-            transform: scale(1.25); /* Enlarge the image to 125% when clicked */
+            transform: scale(1.15); /* Enlarge the image to 115% when clicked */
         }
 
         .close {
@@ -88,7 +88,7 @@
 
         .close:hover {
             transform: scale(1.2);
-            color: #fff;
+            color: #fff; /* Ensure the close button is visible */
         }
     </style>
 </head>
