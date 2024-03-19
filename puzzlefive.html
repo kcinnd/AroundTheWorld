@@ -146,7 +146,7 @@
     <div class="instructions-content">
         Complete the maze in part one to get a two-word location. For part two, use the letters found in the location to find your answer for certitude. Use the example shown in the first image for a reference. To reiterate, the letters found in the maze reflect the letters shown on the images in part two. Your retrieved letter for your certitude keyword phrase will be the first letter of the country location shown in each image that corresponds to the found maze letter. A2 just means the second occurrence of ‘A’ in your maze answer. Your certitude answer will be two words.
     </div>
-    <span class="instructions-close">&times;</span>
+    <span class="close" id="instructions-close">&times;</span>
 </div>
 
 <div class="part-one" style="display: none;">
@@ -171,12 +171,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const instructionsTab = document.getElementById('instructions-tab');
     const partOneTab = document.getElementById('part-one-tab');
     const partTwoTab = document.getElementById('part-two-tab');
+
     const instructionsModal = document.getElementById('instructions-modal');
     const partOne = document.querySelector('.part-one');
     const gallery = document.querySelector('.gallery');
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
-    const closeBtns = document.querySelectorAll('.close');
+
+    const closeBtn = document.querySelector('.close'); 
+    const instructionsCloseBtn = document.getElementById('instructions-close'); 
 
     instructionsTab.addEventListener('click', () => {
         instructionsModal.style.display = 'flex';
@@ -192,8 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     partTwoTab.addEventListener('click', () => {
         gallery.style.display = 'flex';
-        gallery.style.flexDirection = 'row';
-        gallery.style.justifyContent = 'center';
         partOne.style.display = 'none';
         instructionsModal.style.display = 'none';
     });
@@ -205,11 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            instructionsModal.style.display = 'none';
-        });
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    instructionsCloseBtn.addEventListener('click', () => {
+        instructionsModal.style.display = 'none';
     });
 
     window.addEventListener('click', function(e) {
