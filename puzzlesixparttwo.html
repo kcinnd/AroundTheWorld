@@ -141,59 +141,60 @@
     </div>
   
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const counterDisplay = document.querySelector('.number-counter'); 
+document.addEventListener('DOMContentLoaded', () => {
+    const counterDisplay = document.querySelector('.number-counter');
+    let counterValue = 0;  // Define counterValue here to ensure it's accessible by updateCounter
 
-        const updateCounter = (value, add) => {
-            counterValue = add ? counterValue + value : counterValue - value;
-            counterDisplay.textContent = counterValue.toFixed(2).padStart(6, '0'); // Updated for counter display format
-        };
+    const updateCounter = (value, add) => {
+        counterValue = add ? counterValue + value : counterValue - value;
+        counterDisplay.textContent = counterValue.toFixed(2).padStart(6, '0'); // Updated for counter display format
+    };
 
-        const imageValues = {
-            'img1': 1,
-            'img2': 0.79,
-            'img3': 150.67,
-            'img4': 0.89,
-            'img5': 83.02,
-            'img6': 18.92,
-            'img7': 92.07,
-            'img8': 16.86,
-            'img9': 1.65,
-            'img10': 1.34,
-            'img11': 7.82,
-            'img12': 10.65,
-            'img13': 10.44,
-            'img14': 1.09,
-            'img15': 0.65,
-            'img16': 0.74,
-        };
+    const imageValues = {
+        'img1': 1,
+        'img2': 0.79,
+        'img3': 150.67,
+        'img4': 0.89,
+        'img5': 83.02,
+        'img6': 18.92,
+        'img7': 92.07,
+        'img8': 16.86,
+        'img9': 1.65,
+        'img10': 1.34,
+        'img11': 7.82,
+        'img12': 10.65,
+        'img13': 10.44,
+        'img14': 1.09,
+        'img15': 0.65,
+        'img16': 0.74,
+    };
 
-        document.querySelectorAll('.image-grid img').forEach((img, index) => { // Ensure this matches your HTML
-            img.id = 'img' + (index + 1); // Assign IDs dynamically
-            img.addEventListener('click', function() {
-                const isSelected = img.classList.toggle('selected');
-                updateCounter(imageValues[img.id], isSelected);
-            });
-        });
-
-        const conversionChartBtn = document.getElementById('conversion-chart-btn'); // Ensure this matches your HTML
-        const conversionChartModal = document.getElementById('conversion-chart-modal'); // Ensure this matches your HTML
-        const closeConversionChartBtn = conversionChartModal.querySelector('.close'); // Updated for better targeting
-
-        conversionChartBtn.addEventListener('click', () => {
-            conversionChartModal.style.display = 'flex';
-        });
-
-        closeConversionChartBtn.addEventListener('click', () => {
-            conversionChartModal.style.display = 'none';
-        });
-
-        conversionChartModal.addEventListener('click', (e) => {
-            if (e.target === conversionChartModal) {
-                conversionChartModal.style.display = 'none';
-            }
+    document.querySelectorAll('.image-grid img').forEach((img, index) => {
+        img.id = 'img' + (index + 1);
+        img.addEventListener('click', function() {
+            const isSelected = img.classList.toggle('selected');
+            updateCounter(imageValues[img.id], isSelected);
         });
     });
+
+    const conversionChartBtn = document.getElementById('conversion-chart-btn');
+    const conversionChartModal = document.getElementById('conversion-chart-modal');
+    const closeConversionChartBtn = conversionChartModal.querySelector('.close');
+
+    conversionChartBtn.addEventListener('click', () => {
+        conversionChartModal.style.display = 'flex';
+    });
+
+    closeConversionChartBtn.addEventListener('click', () => {
+        conversionChartModal.style.display = 'none';
+    });
+
+    conversionChartModal.addEventListener('click', (e) => {
+        if (e.target === conversionChartModal) {
+            conversionChartModal.style.display = 'none';
+        }
+    });
+});
 </script>
 <script src="puzzleScripts.js"></script>
 </body>
